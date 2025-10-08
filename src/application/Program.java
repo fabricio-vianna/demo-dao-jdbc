@@ -20,7 +20,10 @@ public class Program {
 
         SellerDao sellerDao = DaoFactory.createSellerDao();
 
+        Seller seller1 = sellerDao.findById(3);
+
         System.out.println(obj);
         System.out.println(seller);
+        System.out.println(seller1);
     }
 }
