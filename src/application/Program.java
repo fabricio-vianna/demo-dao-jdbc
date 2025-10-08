@@ -3,6 +3,8 @@ package application;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+import model.dao.DaoFactory;
+import model.dao.SellerDao;
 import model.entities.Department;
 import model.entities.Seller;
 
@@ -16,6 +18,7 @@ public class Program {
 
         Seller seller = new Seller(21, "Joao", "joao@gmail.com", LocalDate.parse("09/09/2009", dtf), 2500.0, obj);
 
+        SellerDao sellerDao = DaoFactory.createSellerDao();
 
         System.out.println(obj);
         System.out.println(seller);
