@@ -96,7 +96,6 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 
                 if (dep == null) {
                     dep = instantiateDepartment(rs);
-                    // map.put(rs.getInt("Id"), dep);
                 }
 
                 list.add(dep);
@@ -104,7 +103,9 @@ public class DepartmentDaoJDBC implements DepartmentDao {
             return list;
         } catch (SQLException e) {
             throw new DbException(e.getMessage());
+        } finally {
+            DB.closeStatement(st);
+            DB.closeResultSet(rs);
         }
-
     }
 }
